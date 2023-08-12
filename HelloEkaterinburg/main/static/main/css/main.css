@@ -35,3 +35,19 @@
     font-size: 65px;
 }
 
+.cards_container{
+    color: #fff;
+}
+
+.event_card{
+    align-items: center;
+    width: 80%;
+    background-color: rgba(0,0,0, 0.45);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+.event_name{
+    margin-left: 20px;
+    font-size: 35px;
+}
+
