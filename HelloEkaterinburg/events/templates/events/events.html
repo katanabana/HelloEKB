@@ -15,14 +15,16 @@
     {{ filter.form.name }}
     <button type="submit">Search</button>
 </form>
-{% for event in filter.qs %}
-<div>
-    <h2>{{ event.name }}</h2>
-    <h4>{{ event.start_datetime }} - {{ event.end_datetime }}</h4>
-    <h4>{{ event.place }}</h4>
-    <h5>{{ event.category }}</h5>
-    <p>{{ event.description }}</p>
-    <img src="{{ event.image.url }}">
+<div class="cards_container">
+    {% for event in filter.qs %}
+        <div class="event_card">
+            <div class="event_name">{{ event.name }}</div>
+            <div class="event_time">{{ event.start_datetime }} - {{ event.end_datetime }}</div>
+            <div class="event_place">{{ event.place }}</div>
+            <div class="event_category">{{ event.category }}</div>
+            <div class="event_description">{{ event.description }}</div>
+            <img class="event_img" src="{{ event.image.url }}">
+        </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}
