@@ -24,6 +24,7 @@
             <div class="event_category">{{ event.category }}</div>
             <div class="event_description">{{ event.description }}</div>
             <img class="event_img" src="{{ event.image.url }}">
+            {{ event.map_code | safe }}
         </div>
     {% endfor %}
 </div>

@@ -6,7 +6,11 @@ from django.db.models import DateTimeField, CharField
 
 def get_img_path(instance, filename):
     extension = filename.split('.')[-1]
-    return os.path.join('event_images', f'{instance.pk}.{extension}')
+    if instance.pk:
+        file_id = instance.pk
+    else:
+        file_id = len(Event.objects.all())
+    return os.path.join('event_images', f'{file_id}.{extension}')
 
 
 class Event(models.Model):
@@ -26,6 +30,7 @@ class Event(models.Model):
     start_datetime = models.DateTimeField(null=True, blank=True)
     end_datetime = models.DateTimeField(null=True, blank=True)
     place = models.CharField(max_length=255, blank=True, null=True)
+    map_code = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
