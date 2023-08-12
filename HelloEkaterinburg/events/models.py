@@ -29,7 +29,6 @@ class Event(models.Model):
     image = models.ImageField(upload_to=get_img_path, null=True, blank=True)
     start_datetime = models.DateTimeField(null=True, blank=True)
     end_datetime = models.DateTimeField(null=True, blank=True)
-    place = models.CharField(max_length=255, blank=True, null=True)
     map_code = models.TextField(blank=True, null=True)
 
     def __str__(self):
