@@ -1,7 +1,15 @@
 {% extends "main/base.html" %}
-
 {% block title %}Главная{% endblock %}
+{% load static %}
 
 {% block content %}
-<h1 class="h1_city_name">Екатеринбург</h1>
+<div class="body_main">
+
+    <header class="main_header">
+        <a class="menu_btn" href="{% url 'main' %}">ГЛАВНАЯ</a>
+        <a class="menu_btn" href="{% url 'events' %}">МЕРОПРИЯТИЯ</a>
+    </header>
+
+    <h1 class="h1_city_name">Екатеринбург</h1>
+</div>
 {% endblock %}

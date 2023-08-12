@@ -1,19 +1,13 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-    <div class="container">
-        <header>
-        <a class="menu_btn" href="{% url 'main' %}">ГЛАВНАЯ</a>
-        <a class="menu_btn" href="{% url 'events' %}">МЕРОПРИЯТИЯ</a>
-    </header>
     {% block content %}
     {% endblock %}
-    </div>
 </body>
 </html>
