@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-    <header>
-        <a href="{% url 'main' %}">Главная</a>
-        <a href="{% url 'events' %}">Мероприятия</a>
+    <div class="container">
+        <header>
+        <a class="menu_btn" href="{% url 'main' %}">ГЛАВНАЯ</a>
+        <a class="menu_btn" href="{% url 'events' %}">МЕРОПРИЯТИЯ</a>
     </header>
     {% block content %}
     {% endblock %}
+    </div>
 </body>
 </html>
