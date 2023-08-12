@@ -15,6 +15,11 @@ class Event(models.Model):
     name = CharField("Name", max_length=255, null=True, blank=True)
     category = models.CharField("Category", max_length=255, null=True, blank=True, choices=CATEGORY)
     description = models.CharField("Description", max_length=255, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    start_datetime = models.DateTimeField(null=True, blank=True)
+    end_datetime = models.DateTimeField(null=True, blank=True)
+    place = models.CharField(max_length=255, blank=True)
+
 
     def __str__(self):
         return self.name
