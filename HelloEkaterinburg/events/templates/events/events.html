@@ -1,30 +1,39 @@
 {% extends "main/base.html" %}
-
-
-{% block title %}
-{{ title }}
-{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% load static %}
 
 {% block content %}
-<h2>Мероприятия</h2>
-<form action="" method="get">
-    {% csrf_token %}
-    <p>{{ filter.form.category.label }}:</p>
-    {{ filter.form.category }}
-    <p>Название мероприятия содержит:</p>
-    {{ filter.form.name }}
-    <button type="submit">Search</button>
-</form>
-<div class="cards_container">
-    {% for event in filter.qs %}
-        <div class="event_card">
-            <div class="event_name">{{ event.name }}</div>
-            <div class="event_time">{{ event.start_datetime }} - {{ event.end_datetime }}</div>
-            <div class="event_place">{{ event.place }}</div>
-            <div class="event_category">{{ event.category }}</div>
-            <div class="event_description">{{ event.description }}</div>
-            <img class="event_img" src="{{ event.image.url }}">
-        </div>
-    {% endfor %}
+<div class="body_events">
+
+    <header class="events_header">
+        <a class="menu_btn" href="{% url 'main' %}">ГЛАВНАЯ</a>
+        <a class="menu_btn" href="{% url 'events' %}">МЕРОПРИЯТИЯ</a>
+    </header>
+
+    <h2>Мероприятия</h2>
+    <form action="" method="get">
+        {% csrf_token %}
+        <p>{{ filter.form.category.label }}:</p>
+        {{ filter.form.category }}
+        <p>Название мероприятия содержит:</p>
+        {{ filter.form.name }}
+        <button type="submit">Search</button>
+    </form>
+    <div class="cards_container">
+        {% for event in filter.qs %}
+            <div class="event_card">
+                <div class="card-left-div">
+                    <div class="event_name">{{ event.name }}</div>
+                    <div class="event_time">{{ event.start_datetime }} - {{ event.end_datetime }}</div>
+                    <div class="event_place">{{ event.place }}</div>
+                    <div class="event_category">{{ event.category }}</div>
+                    <div class="event_description">{{ event.description }}</div>
+                </div>
+                <div class="card-right-div">
+                    <img class="event_img" src="{{ event.image.url }}">
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}
