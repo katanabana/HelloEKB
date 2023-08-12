@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+<h2>Мероприятия</h2>
+<form action="" method="get">
+    {% csrf_token %}
+    <p>{{ filter.form.category.label }}:</p>
+    {{ filter.form.category }}
+    <p>{{ filter.form.name.label }}:</p>
+    {{ filter.form.name }}
+    <button type="submit">Search</button>
+</form>
+{% for el in filter.qs %}
+<div>
+    <a>{{ el.name }}</a>
+    <a>{{ el.category }}</a>
+    <a>{{ el.description }}</a>
+</div>
+{% endfor %}
+{% endblock %}
