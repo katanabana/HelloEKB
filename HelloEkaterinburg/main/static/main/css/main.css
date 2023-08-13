@@ -1,8 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
-
+    font-family: 'Mont', sans-serif;
+    font-size: 1.1em;
 }
 
 .body_main{
@@ -32,6 +32,7 @@
 }
 
 .main_header {
+    backdrop-filter: blur(10px);
     padding-left: 8%;
     padding-right: 8%;
     padding-top: 3%;
@@ -71,27 +72,32 @@
 
 
 .cards_container{
-    color: black;
 }
 
 .event_card{
+    align-items: center;
     padding: 40px;
     align-items: center;
     background-color: rgba(0,0,0, 0.05);
     box-shadow: 0 0 30px rgba(0, 0, 0, .5);
     margin-top: 5%;
     margin-bottom: 5%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     border-radius: 30px;
+}
+
+.flex-div-card{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .event_name{
+    margin: 10px;
     font-size: 35px;
     font-weight: bolder;
+    text-align: center;
 }
 
 .event_img{
@@ -100,4 +106,85 @@
     border-radius: 30px;
     width: 300px;
     height: auto;
+    margin: 1px;
+}
+
+iframe{
+    border-radius: 30px;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    padding-top: 20px;
+}
+
+map-flex{
+    border-radius: 30px;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+}
+
+.event_description{
+    padding: 10px;
+    margin: 30px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 22px;
+    color:#000000ca;
+}
+
+.event_time{
+    text-align-last: center;
+    margin-right: 30px;
+    border-radius: 30px;
+    color: rgb(17, 23, 30);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.filter-div{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    padding: 5px;
+    vertical-align: auto;
+}
+
+
+#id_category{
+    border: none;
+    outline: none;
+    margin: 20px;
+    padding: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    ;
+}
+    
+
+
+
+#id_name{
+    border:none;
+   margin: 20px; 
+   margin-top: 25px;
+   padding: 10px;
+    border-bottom: 5px solid rgb(255, 187, 0);
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, 0.7);
+
+}
+
+
+.btn-search{
+    border:none;
+    margin: 20px;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    background-color: rgb(255, 187, 0);
+    color: white;
+    font-weight: 700;
+    font-size: 30px;
+    
 }
