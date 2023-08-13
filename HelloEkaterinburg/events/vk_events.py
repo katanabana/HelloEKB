@@ -12,4 +12,3 @@ def get_events():
     return descriptions
 
 
-print(get_events())
