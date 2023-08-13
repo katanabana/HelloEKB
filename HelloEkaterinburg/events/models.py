@@ -45,9 +45,9 @@ class Event(models.Model):
 
     @classmethod
     def get_last_from(cls, category):
-        events = [i for i in cls.objects.all() if
-                  i.category == category and i.start_datetime >= datetime.datetime.now()]
+        events = [i for i in cls.objects.all() if i.category == category]
         if events:
+            print(sorted(events, key=lambda event: event.start_datetime)[0])
             return sorted(events, key=lambda event: event.start_datetime)[0]
 
 
