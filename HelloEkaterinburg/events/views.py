@@ -1,16 +1,18 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.urls import reverse_lazy
-from django.views.generic import DetailView, ListView
 
+from .vk_events import get_events
 from .filters import EventFilter
-from .models import Event
+from .models import Event, EventFromPublic
 
 
 def events(request):
     events = Event.objects.all()
     filter = EventFilter(request.GET, queryset=events)
     events = filter.qs
+
+    for description in get_events():
+        event = EventFromPublic(description=description)
+        event.save()
 
     context = {"events": events,
                "filter": filter}
@@ -24,5 +26,3 @@ def events(request):
     pk = 'id'
     context_object_name = 'event'
 """
-
-

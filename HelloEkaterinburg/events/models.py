@@ -45,6 +45,18 @@ class Event(models.Model):
 
     @classmethod
     def get_last_from(cls, category):
-        events = [i for i in cls.objects.all() if i.category == category and i.start_datetime >= datetime.datetime.now()]
+        events = [i for i in cls.objects.all() if
+                  i.category == category and i.start_datetime >= datetime.datetime.now()]
         if events:
             return sorted(events, key=lambda event: event.start_datetime)[0]
+
+
+class EventFromPublic(models.Model):
+    description = models.TextField("Description", max_length=255, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Мероприятие из паблика"
+        verbose_name_plural = "Мероприятия из пабликов"
+
+    def __str__(self):
+        return ' '.join(self.description.split()[:5]) + ' ...'
