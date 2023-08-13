@@ -1,3 +1,4 @@
+import datetime
 import os.path
 
 from django.db import models
@@ -37,3 +38,9 @@ class Event(models.Model):
     class Meta:
         verbose_name = "Мероприятие"
         verbose_name_plural = "Мероприятия"
+
+    @classmethod
+    def get_last_from(cls, category):
+        events = [i for i in cls.objects.all() if i.category == category and i.start_datetime >= datetime.datetime.now()]
+        if events:
+            return sorted(events, key=lambda event: event.start_datetime)[0]
