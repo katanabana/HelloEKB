@@ -35,6 +35,10 @@ class Event(models.Model):
     def __str__(self):
         return self.name
 
+    def get_datetime(self):
+        start = self.start_datetime
+        end = self.end_datetime
+
     class Meta:
         verbose_name = "Мероприятие"
         verbose_name_plural = "Мероприятия"
