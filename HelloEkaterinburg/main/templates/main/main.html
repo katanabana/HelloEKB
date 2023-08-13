@@ -9,7 +9,25 @@
         <a class="menu_btn" href="{% url 'main' %}">ГЛАВНАЯ</a>
         <a class="menu_btn" href="{% url 'events' %}">МЕРОПРИЯТИЯ</a>
     </header>
-
-    <h1 class="h1_city_name">Екатеринбург</h1>
+    <div class="main_row">
+        <div class="col">
+            <h1 class="h1_city_name">Екатеринбург</h1>
+        </div>
+        <div class="col">
+            <div class="card" style="background-image: url({{sport.image.url}});">
+                <p>{{ sport.name }}</p>
+            </div>
+            <div class="card" style="background-image: url({{culture.image.url}});">
+                <p>{{ culture.name }}</p>
+            </div>
+            <div class="card" style="background-image: url({{education.image.url}});">
+                <p>{{ education.name }}</p>
+            </div>
+            <div class="card" style="background-image: url({{hobby.image.url}});">
+                <p>{{ hobby.name }}</p>
+            </div>
+        </div>
+    </div>
+    
 </div>
 {% endblock %}
